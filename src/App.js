@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import React from 'react'
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Addblog from './Components/Addblog';
+import Blogs from './Components/Blogs';
+import Editblog from './Components/Editblog';
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Myblogs from './Components/Myblogs';
+import Signup from './Components/Signup';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <div className='App'>
+      <Routes>
+         <Route path="/" element={<Home/>} exact></Route>
+          <Route path="/login" element={<Login/>}></Route>
+          <Route path="/signup" element={<Signup/>}></Route>
+          <Route path="/blogs" element={<Blogs/>}></Route>
+          <Route path="/addblog" element={<Addblog/>}></Route>
+          <Route path="/myblogs" element={<Myblogs/>}></Route>
+          <Route path="/:id" element={<Editblog/>}></Route>
+          
+      </Routes>
+      
+      </div>
+  )
 }
 
 export default App;
